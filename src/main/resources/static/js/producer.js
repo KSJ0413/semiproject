@@ -17,7 +17,7 @@ console.log(url);
  
 }
 function add(reply) {
-		if(id == ''){
+		if(id == ''||id == null){
    	alert("로그인을 해주세요")
    	location.href= 'http://localhost:8000/member/login';
    	}else{

@@ -74,7 +74,7 @@
  <tr>
  	<th>직업</th>
  	<td>
- 	직업코드:${dto.job}(${util:jobname(dto.job)})
+ 	<%--  직업코드:${dto.job}(${util:jobname(dto.job)}) --%>
      </td>
  </tr>
  <tr> 
@@ -85,14 +85,14 @@
  </table>
  <div style="text-align: center">
  <button class="btn btn-default" onclick="updateM()">정보수정</button>
- <c:if test="${not empty dto.id and dto.grade != 'A'}">
+ <c:if test="${not empty sessionScope.id and sessionScope.grade != 'A'}">
  <button class="btn btn-default" onclick="updateFile()">사진수정</button>
  <button class="btn btn-default" onclick="updatePw()">패스워드변경</button>
  <button class="btn btn-default" 
  onclick="location.href='./download?dir=storage&filename=${dto.fname}'">다운로드</button>  
  </c:if>
  <button class="btn btn-default" onclick="deleteM()">회원탈퇴</button>
- <c:if test="${not empty dto.id and dto.grade == 'A'}">
+ <c:if test="${not empty sessionScope.id and sessionScope.grade == 'A'}">
  <button class="btn btn-default" onclick="location.href='list'">회원목록</button>
  </c:if>
  </div>

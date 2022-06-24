@@ -6,8 +6,60 @@
 <html lang="en">
 <head>
 
+<script type="text/javascript">
+function cart(){
+	if("${sessionScope.id}" == ''){
+		alert("먼저 로그인을 하세요")
+ 		location.href='member.login';
+		return;
+	}
+	let count = document.getElementById("qty").value;//$('#qty').val()
+	let select = document.querySelector('.form-select');
+	let i=select.selectedIndex;
+	if(i==0 && !select.disabled){
+		alert("사이즈를 선택하세요");
+		select.focus();
+		return
+	}else if(select.disabled){
+		select[i].value=0;
+	}
+	let param = {
+			contentsno : '${dto.contentsno}',
+			count : count,
+			size : select[i].value
+	}
+	addCart(param)
+	.then(result => alert(result))
+	.catch(console.log);
+}
+function order(){
+	if("${sessionScope.id}" == ''){
+		alert("먼저 로그인을 하세요")
+ 		location.href='member.login';
+		return;
+	}
+	let count = document.getElementById("qty").value;//$('#qty').val()
+	let select = document.querySelector('.form-select');
+	let i=select.selectedIndex;
+	if(i==0 && !select.disabled){
+		alert("사이즈를 선택하세요");
+		select.focus();
+		return
+	}else if(select.disabled){
+		select[i].value=0;
+	}
+	let url = "/order/create/order/${dto.contentsno}/"+count+"/"+select[i].value;
+	location.href = url;
+	}
+
+
+
+
+</script>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" src="/js/cart.js"></script>
 </head>
 <body>
  
@@ -24,14 +76,16 @@
   <div class="col-sm-6">
   <h4><img src="/svg/rulers.svg"> 사이즈 및 수량</h4>
   <ul class="list-group">
-    <li class="list-group-item">사이즈 :
+    <li class="list-group-item" >사이즈 :
+    
     <c:choose>
     <c:when test="${dto.cateno==1 }">
-     <select class="form-select" aria-label="Default select example">
-  <option selected>사이즈 선택</option>
-  <option value="1">L</option>
-  <option value="2">M</option>
-  <option value="3">S</option>
+    <input type="hidden" id="changeinput">
+     <select class="form-select" aria-label="Default select example" id="qty" >
+  <option selected  >사이즈 선택</option>
+  <option value="1" >L</option>
+  <option value="2" >M</option>
+  <option value="3" >S</option>
 </select>
     </c:when>
     
@@ -43,7 +97,7 @@
     
     <c:when test="${dto.cateno==3 }">
          <select class="form-select" aria-label="Default select example">
-  <option selected>사이즈 선택</option>
+  <option selected >사이즈 선택</option>
   <option value="220">220</option>
   <option value="230">230</option>
   <option value="240">240</option>
@@ -56,9 +110,9 @@
 </c:choose>
     <li class="list-group-item">가격 : ${dto.price }
     <li class="list-group-item">재고 : ${dto.stock }
-    <li class="list-group-item">수량 : <input type="number" name="quantity" min=0 max=20 value="1" >     
+    <li class="list-group-item">수량 : <input type="number"  id="qty" name="quantity" min=0 max=20 value="1" class="piece">     
     <li class="list-group-item">
-        <a href="javascript:cart()">
+        <a href="javascript:cart()" class="addCart_btn">
         <img class="btn" src="/svg/cart4.svg">	</a>
         <a href="javascript:order()">
         <img class="btn" src="/svg/bag-heart-fill.svg">	</a>
@@ -153,12 +207,15 @@ aria-labelledby="myModalLabel" aria-hidden="true">
   let wordx = "${param.word}";
   let id = "${id}"
   let grade = "${sessionScope.grade}"
-	
+	let stock = "${dto.stock }"
  </script>
  <!-- 댓글처리 관련 Javascript 파일 추가-->
 <script src="${pageContext.request.contextPath}/js/producer.js"></script>
  
 <script src="${pageContext.request.contextPath}/js/consumer.js"></script>
+
+<!-- 장바구니 기능 추가 -->
+<script src="${pageContext.request.contextPath}/js/cart.js"></script>
 
 </body>
 </html>

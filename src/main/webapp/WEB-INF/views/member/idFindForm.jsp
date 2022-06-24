@@ -35,6 +35,7 @@
         <input type="text" class="form-control" id="email" 
         placeholder="Enter email" name="email" required="required" >
       </div>
+      
     </div>
    
     
@@ -43,12 +44,11 @@
     
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-8">
-       
-      
-        
+     
         <button type="button" class="btn btn-default" onclick="location.href='/'">홈으로</button>
         <button type="button" class="btn btn-default" onclick="location.href='/member/login'">로그인</button>
         <button type="button" class="btn btn-default" id="idFind_button">아이디 찾기</button>
+      
       </div>
     </div>
   </form>

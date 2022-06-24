@@ -1,4 +1,4 @@
-$(function(){
+$(function(){ 
  
     $('#checkForm').on('click', function(){
         uploadFile();

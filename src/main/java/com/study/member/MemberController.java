@@ -250,7 +250,7 @@ public class MemberController {
                 if(cnt>0) {
                         
                         if(map.get("rurl") != null && !map.get("rurl").equals("")) {
-                                model.addAttribute("bbsno", map.get("bbsno"));
+                                model.addAttribute("contentsno", map.get("contentsno"));
                                 model.addAttribute("nPage", map.get("nPage"));
                                 model.addAttribute("nowPage", map.get("nowPage"));
                                 model.addAttribute("col", map.get("col"));

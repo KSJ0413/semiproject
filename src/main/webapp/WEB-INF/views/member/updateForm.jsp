@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <title>회원수정</title>
   <meta charset="utf-8">
   <style type="text/css">
@@ -45,8 +46,15 @@ function inCheck(f){
 		return false;
 	}
 }
+function update(){
+	location.href = "updateFileForm.jsp"
+	
+}
+
+
 
 </script>
+
   
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script>
@@ -180,18 +188,30 @@ function inCheck(f){
 			<option value="A08">법조인</option>
 			<option value="A09">종교/언론/예술인</option>
 			<option value="A10">기타</option>
-    	
     	</select>
+    	<form   id="updateFileEX" class="form-horizontal" 
+        action="updateFile"
+        method="post"
+        enctype="multipart/form-data">   
+    	
+    	<br><br>
+    	<img class="img-rounded" src="/member/storage/${dto.fname}" style="width:280px">
+    	<br><br>
+         
+       <button><a href="http://localhost:8000/member/updateFile">이미지 수정</a></button>
+     
+    
+    	
     	<script type="text/javascript">
     		document.frm.job.value='${dto.job}';
     	</script>
     
     </div>
     </div>
-       
+      
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-5">
-        <button type="submit" class="btn btn-default">수정</button>
+        <button type="submit" class="btn btn-default" >수정</button>
         <button type="reset" class="btn btn-default">취소</button>
       </div>
     </div>
@@ -199,5 +219,6 @@ function inCheck(f){
 
 <br><br>
 </div>
+</form>
 </body>
 </html>

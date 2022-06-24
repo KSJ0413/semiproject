@@ -25,5 +25,7 @@ public interface ContentsMapper {
         ContentsDTO detail(int contentsno);
         
         void upViewcnt(int contentsno);
+
+
         
 }
