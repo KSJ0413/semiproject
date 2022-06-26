@@ -87,9 +87,9 @@
     <img src="/contents/storage/${dto.filename}"  class="img-rounded" width="100px" height="100px">
     </td>
     <td>
-     <a href="/contents/read/${dto.contentsno }")">${dto.pname}</a>
-   <%--  <a href="javascript:read('${dto.contentsno}')">${dto.pname}</a> --%>
-  <%--  <a href="/contents/detail/${dto.contentsno }">${dto.pname}</a> --%>
+    
+     <a href="/contents/read/${dto.contentsno }">${dto.pname}</a>
+  
     <c:if test="${util:newImg(fn:substring(dto.rdate,0,10)) }">
          <img src="/images/new.gif"> 
     </c:if> 

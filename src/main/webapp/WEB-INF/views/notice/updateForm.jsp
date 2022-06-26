@@ -9,7 +9,7 @@
 <body> 
  
 <div class="container">
-<h1 class="col-sm-offset-2 col-sm-10">게시판 수정</h1>
+<h1 class="col-sm-offset-2 col-sm-10">공지사항 수정</h1>
 <form class="form-horizontal" 
       action="./update"
       method="post"

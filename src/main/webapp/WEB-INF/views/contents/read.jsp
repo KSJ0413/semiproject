@@ -77,9 +77,12 @@
     <li class="list-group-item">가격 : ${dto.price }
     <li class="list-group-item">재고 : ${dto.stock }
     <li class="list-group-item">
-       <a href="http://localhost:8000/contents/update/${dto.contentsno }"> <button id="update" >수정</button></a>
-       <a href="http://localhost:8000/contents/delete/${dto.contentsno }"> <button id="update" >삭제</button></a>
-       <a href="http://localhost:8000/contents/updateFile/${dto.contentsno }/${dto.filename}"> <button id="update" >이미지 수정</button></a>
+       <a href="http://localhost:8000/contents/update/${dto.contentsno }">
+        <button id="update" >수정</button></a>
+       <a href="http://localhost:8000/contents/delete/${dto.contentsno }"> 
+       <button id="update" >삭제</button></a>
+       <a href="http://localhost:8000/contents/updateFile/${dto.contentsno }/${dto.filename}"> 
+       <button id="update" >이미지 수정</button></a>
 
  
   </ul>

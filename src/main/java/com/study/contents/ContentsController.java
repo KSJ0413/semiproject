@@ -34,29 +34,7 @@ public class ContentsController {
         @Qualifier("com.study.contents.ContentsServiceImpl")
         private ContentsService service;
         
-        @PostMapping("/contents/updateFile")
-        public String updateFile(MultipartFile filenameMF,
-                        String oldfile,int contentsno,HttpServletRequest request)throws IOException {
-                String basePath = UploadCon.getUploadDir();
-                
-                if(oldfile !=null  && !oldfile.equals("default.jpg")) { //원본파일 삭제
-                        Utility.deleteFile(basePath, oldfile);
-                }
-                
-                //pstorage에 변경 파일 저장
-                Map map = new HashMap();
-                map.put("contentsno", contentsno);
-                map.put("fname", Utility.saveFileSpring(filenameMF, basePath));
-                
-                //디비에 파일명 변경
-                int cnt = service.updateFile(map);
-                
-                if(cnt==1) {
-                        return "redirect:./list";
-                }else {
-                        return "./error";
-                }
-        }
+ 
         
         @GetMapping("/contents/updateFile/{contentsno}/{oldfile}")
         public String updateFileForm(@PathVariable("contentsno") int contentsno, 

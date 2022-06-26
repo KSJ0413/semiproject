@@ -8,11 +8,12 @@
   <script type="text/JavaScript">
         
  function checkIn(f){
-         if (f.wname.value == ""){
-              alert("글쓴이를 입력하세요");
-              f.wname.focus()
-              return false;
-         }
+	   if (f.wname.value == ""){
+           alert("이름를 입력하세요");
+           f.wname.focus();
+           return false;
+      }
+
          if (f.title.value == ""){
               alert("제목를 입력하세요");
               f.title.focus();
@@ -39,13 +40,13 @@
       method="post"
       onsubmit="return checkIn(this)"
       >
- 
-  <div class="form-group">
+   <div class="form-group">
     <label class="control-label col-sm-2" for="wname">작성자</label>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
       <input type="text" name="wname" id="wname" class="form-control">
     </div>
   </div>
+
   <div class="form-group">
     <label class="control-label col-sm-2" for="title">제목</label>
     <div class="col-sm-8">

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="util" uri="/ELFunctions" %>
+
  
 <!DOCTYPE html> 
 <html> 
@@ -50,8 +51,17 @@
       <input type="text" class="form-control" placeholder="Enter 검색어" 
       name="word" value="${word}">
     </div>
-    <button type="submit" class="btn btn-default" >검색</button>
+   <!--  <button type="submit" class="btn btn-default" >검색</button>
+    <button type="button" class="btn btn-default" onclick="location.href='./create'">등록</button> -->
+    
+    
+    <c:if test="${sessionScope.grade == 'A'}" >
+   <button type="submit" class="btn btn-default" >검색</button>
     <button type="button" class="btn btn-default" onclick="location.href='./create'">등록</button>
+                       </c:if>
+                          <c:if test="${sessionScope.grade == 'H'}">
+                      <button type="submit" class="btn btn-default" >검색</button>
+                        </c:if> 
   </form>
   
   <table class="table table-striped">

@@ -21,8 +21,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     where contentsno=#{contentsno}
 </select>
 <insert id="create" parameterType="com.study.review.ReviewDTO">
-    insert into review(content, regdate, id, contentsno)
-    values(#{content}, sysdate(), #{id}, #{contentsno}) 
+    insert into review(content,wname, regdate, id, contentsno)
+    values(#{content},#{wname}, sysdate(), #{id}, #{contentsno}) 
 </insert>
  
 <select id="read" parameterType="int" resultType="com.study.review.ReviewDTO">

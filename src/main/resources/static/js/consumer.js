@@ -128,7 +128,7 @@ modalModBtn.on("click", function (e) {
  
   let reply = { rnum: modal.data("rnum"), content: modalInputContent.val() };
   update(reply)
-    .then(result => {
+    .then(reply => {
       modal.modal("hide");
       showList();
       showPage();

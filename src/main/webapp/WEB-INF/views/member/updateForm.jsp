@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <title>회원수정</title>
   <meta charset="utf-8">
+   <script src="/js/readupdate.js" type="text/javascript"></script>
   <style type="text/css">
   	#need,#emailcheck{
   		color:red;
@@ -117,6 +118,8 @@ function update(){
         method="post"
         name = 'frm'
         onsubmit="return inCheck(this)"
+        	enctype="multipart/form-data"
+        	id="updateFileEX"
         >
      <input type="hidden" name="id" value="${dto.id}">
     <div class="form-group">
@@ -189,16 +192,12 @@ function update(){
 			<option value="A09">종교/언론/예술인</option>
 			<option value="A10">기타</option>
     	</select>
-    	<form   id="updateFileEX" class="form-horizontal" 
-        action="updateFile"
-        method="post"
-        enctype="multipart/form-data">   
-    	
-    	<br><br>
+    	 <br>
+    	  
     	<img class="img-rounded" src="/member/storage/${dto.fname}" style="width:280px">
-    	<br><br>
-         
-       <button><a href="http://localhost:8000/member/updateFile">이미지 수정</a></button>
+         <br>
+       <input type="file" class="form-control" id="fnameMM" 
+        name="fnameMF" accept=".jpg,.png,.gif" required="required" width="300px" height="200px">
      
     
     	
@@ -211,14 +210,13 @@ function update(){
       
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-5">
-        <button type="submit" class="btn btn-default" >수정</button>
+        <button type="submit" class="btn btn-default" id="checkForm">수정</button>
         <button type="reset" class="btn btn-default">취소</button>
       </div>
     </div>
-  </form>
+ </form>
 
 <br><br>
 </div>
-</form>
 </body>
 </html>

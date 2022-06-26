@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.study.contents.UploadCon;
 import com.study.utility.Utility;
  
 @Controller
@@ -35,6 +36,10 @@ public class MemberController {
         @Autowired
         @Qualifier("com.study.member.MemberServiceImpl")
         private MemberService service;
+        
+        
+        
+        
         
         @GetMapping("/")
         public String home() {

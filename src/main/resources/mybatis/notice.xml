@@ -43,11 +43,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE noticeno=#{noticeno}
 	</select>
 
-	<insert id="create" parameterType="com.study.notice.NoticeDTO">
-		INSERT INTO notice(title,
-		content, wname, passwd, cnt, rdate)
-		VALUES(#{title}, #{content},
-		#{wname}, #{passwd}, 0, NOW())
+	<insert id="create" parameterType="com.study.notice.NoticeDTO" >
+		INSERT INTO notice(wname,title,
+		content, passwd, cnt, rdate)
+		VALUES(#{wname	},#{title}, #{content},
+		 #{passwd}, 0, NOW())
 	</insert>
 
 	<select id="list" parameterType="Map"

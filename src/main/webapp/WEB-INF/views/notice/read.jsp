@@ -66,14 +66,10 @@
                           <c:if test="${sessionScope.grade == 'H'}">
                         <button type="button" class="btn" onclick="listM()">목록</button>
                         </c:if> 
-
-
-
-
-			<!-- <button type="button" class="btn" onclick="location.href='./create'">등록</button>
-                        <button type="button" class="btn" onclick="updateM()">수정</button>
-                        <button type="button" class="btn" onclick="deleteM()">삭제</button>
-                        <button type="button" class="btn" onclick="listM()">목록</button> -->
+                         <c:if test="${sessionScope.grade == ''}">
+                        <button type="button" class="btn" onclick="listM()">목록</button>
+                        </c:if> 
+                      
                 </div>
          </div>
 </body>
